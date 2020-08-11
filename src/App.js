@@ -1,23 +1,15 @@
-import React, { useEffect, useMemo, useState } from 'react';
-import { createEditor } from 'slate';
-import { Slate, Editable, withReact } from 'slate-react';
+import React from 'react';
 import './App.css';
+import RichText from './Components/RichText'
 
-const App = () => {
-  const editor = useMemo(() => withReact(createEditor()), [])
-  // Add the initial value when setting up our state.
-  const [value, setValue] = useState([
-    {
-      type: 'paragraph',
-      children: [{ text: 'A line of text in a paragraph.' }],
-    },
-  ])
-
+function App() {
   return (
-    <Slate editor={editor} value={value} onChange={newValue => setValue(newValue)}>
-      <Editable />
-    </Slate>
-  )
+    <div className="App">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&subset=latin-ext"/>
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+      <RichText />
+    </div>
+  );
 }
 
 export default App;
